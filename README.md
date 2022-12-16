@@ -41,3 +41,10 @@ and in the setting file:
 `SECRET_KEY = os.getenv("SECRET_KEY")`
 
 * To run the project: `python3 manage.py runserver`
+
+#### Creating an App:
+* Type `python3 manage.py startapp app_name` in the terminal to create an app.
+* Note the `urls.py` website can be used to activate functions in `views.py` within the project folder and requires the built-in `path` function, which takes 3 arguments:
+    - the url that the user is going to type in
+    - the view function that it's going to return
+    - a name parameter
