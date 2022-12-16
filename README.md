@@ -45,6 +45,10 @@ and in the setting file:
 #### Creating an App:
 * Type `python3 manage.py startapp app_name` in the terminal to create an app.
 * Note the `urls.py` website can be used to activate functions in `views.py` within the project folder and requires the built-in `path` function, which takes 3 arguments:
-    - the url that the user is going to type in
+    - the url that the user is going to type in (make sure to add this to end of the default url when running the project to see the app)
     - the view function that it's going to return
     - a name parameter
+
+#### Templating:
+* When creating a templates folder within the app folder, create another folder within it with the same name as the app. The reason that we're creating this secondary folder inside the templates directory is because when Django looks for templates inside of these apps it will always return the first one that it finds. So by separating it into a folder that matches its app name. We can ensure that we're getting the right template even if there's another template of the same name in a different app.
+* After updating the `views.py`and `urls.py` files with suitable templates, add the app name to the `INSTALLED_APPS` list within `settings.py` to make sure it can run.
