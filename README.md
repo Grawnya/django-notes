@@ -31,13 +31,11 @@
     - `urls.py` - contains routing info.
     - `wsgi.py` - allows our web server to communicate with our Python application.
 * Make sure secret key in `settings.py` is saved in `env.py` file in the form:
-<br/>
-
+\n
 `os.environ[SECRET_KEY] = insert secret key`
-<br/>
+\n
 and in the setting file:
-<br/>
-
+\n
 `SECRET_KEY = os.getenv("SECRET_KEY")`
 
 * To run the project: `python3 manage.py runserver`
@@ -52,3 +50,11 @@ and in the setting file:
 #### Templating:
 * When creating a templates folder within the app folder, create another folder within it with the same name as the app. The reason that we're creating this secondary folder inside the templates directory is because when Django looks for templates inside of these apps it will always return the first one that it finds. So by separating it into a folder that matches its app name. We can ensure that we're getting the right template even if there's another template of the same name in a different app.
 * After updating the `views.py`and `urls.py` files with suitable templates, add the app name to the `INSTALLED_APPS` list within `settings.py` to make sure it can run.
+
+#### Migrations and Admins:
+* Migrations are Django's way of converting Python code into database operations.
+* `python3 manage.py makemigrations --dry-run` - Note: the dry run flag is used to run a command to see how the programme would run. You can run the command without the `--dry-run` command. It tells Django to convert our Python code into SQL code.
+* `python3 manage.py showmigrations` - This shows migrartions done.
+* `python3 manage.py migrate --plan` - Note: the plan flag shows what the command would do. **Run this at the after the initial setup to conduct the required migrations**
+* `python3 manage.py createsuperuser` - used to create a way to log in and look at the tables. Put in a username, email and password.
+* To login to view the tables go to the url ending with `/admin` and put in your username and password.
