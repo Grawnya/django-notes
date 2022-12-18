@@ -69,3 +69,7 @@ and in the setting file:
 * You can define all fields within the class, but note that Django automatically creates an `id` field.
 * `Charfield()` refers to a field consisting of characters or a string.
 * `Booleanfield()` refers to a field consisting of a boolean value.
+* After the class is created, make the migrations and a folder is created called `migrations`, which creates a file called `0001_initial.py` containing code creating the db table by converting code into SQL.
+* Don't forget to the final migrate using only `migrate`as mentioned above. This is the step that converts the Python insto SQL.
+* At this stage we can programmatically update the table, but we won't see it on the admin page, until you register it in the `admin.py`file. This can be done by importing the class within the models file and registering it with `admin.site.register(class_name)`.
+* Note: By default all models that inherit the base model class in the `models.py` file will use its built-in string method to display their class name followed by the word "object" e.g. Item object(2). You can change this by overriding the `__str__` method and returning a suitable name.
