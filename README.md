@@ -61,3 +61,11 @@ and in the setting file:
 * `python3 manage.py migrate --plan` - Note: the plan flag shows what the command would do. **Run this at the after the initial setup to conduct the required migrations!**
 * `python3 manage.py createsuperuser` - used to create a way to log in and look at the tables. Put in a username, email and password.
 * To login to view the tables go to the url ending with `/admin` and put in your username and password.
+
+#### Models:
+* A model is the single, definitive source of information about your data. It contains the essential fields and behaviors of the data you're storing. Generally, each model maps to a single database table.
+* Models are created in the `models.py` file within the specific apps folder.
+* Create a class, which will be the name of the table within the database and inherit `models.Model` to ensure that your class can do everything the built-in Django `model` class can do.
+* You can define all fields within the class, but note that Django automatically creates an `id` field.
+* `Charfield()` refers to a field consisting of characters or a string.
+* `Booleanfield()` refers to a field consisting of a boolean value.
