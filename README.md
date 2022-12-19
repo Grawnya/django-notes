@@ -80,3 +80,9 @@ and in the setting file:
 * Convert this to a dict and then add that dict name to the end of the `render` function.
 * The variable name for the query above can be called in the html template and `{{ }}` can be used to call a variable, whereas `{% %}` can be used for logic within - similar to Flask.
 * Note: if you have an empty database, you can set an `empty` condition in the html template to deal with the situation.
+
+#### Forms in Django:
+* Just inside the opening form tag whenever we're posting information in Django, we need to add the CSRF or cross-site request forgery token.
+* This token is a randomly generated unique value which will be added to the form as a hidden input field when the form is submitted.
+* It works to guarantee that the data that is being posted is actually coming from our the specific app and not from another website.
+* To obtain details from a form, use the `POST` method and within `views.py` obtain the `POST` values by their name and put them into the db table using `class_name.objects.create(field1=name1, field2=name2)`.

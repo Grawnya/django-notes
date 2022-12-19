@@ -8,7 +8,9 @@
 </head>
 <body>
     <h1>Add a New Item</h1>
-    <form method="POST" action="add"> <!--Where add goes to the add URL-->
+    <form method="POST" action="add">
+        <!--Where 'add' goes to the add URL and POST puts the data into the server-->
+        {% csrf_token %}
         <div>
             <p>
                 <label for="id_name">Name: </label>
