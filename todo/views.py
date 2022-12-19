@@ -8,3 +8,6 @@ def get_todo_list(request):
         'items': items # dict of all items
     }
     return render(request, 'todo/todo_list.html', context)
+
+def add_item(request):
+    return render(request, 'todo/add_item.html')
