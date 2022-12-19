@@ -117,3 +117,10 @@ and in the setting file:
 * To view a specific interactive report, type in `coverage html`. This creates a specific folder called `htmlcov`. The interactive report is found in the resultant `index.html` file, which can be opened as a regular static webpage: `python3 -m http.server`.
 * Open the `htmlcov/` folder and you can click on the individual files to see why they are not 100% tested.
 * Note: 100% coverage doesn't mean 100% of tests pass; just that 100% of the code has been tested.
+
+#### Deployment via Heroku CLI:
+* In the console, type in `heroku login -i` and in a separate browser tab, go into the [Applications Section](https://dashboard.heroku.com/account/applications) of your heroku dashboard and generate an authorisation.
+* Type in your email for the login in the terminal and paste in the authorisation code as the password.
+* Heroku uses an ephemeral file system, which means the `db.sqlie3` file is wiped clean every time Heroku runs updates or we redeploy our app.
+* Therefore, we need to install a library called `pyscopg2` using `pip3 install pyscopg2-binary` and we also need to install `guincorn` (also called green unicorn) by using `pip3 install gunicorn`.
+* Generate a `requirements.txt` file for Heroku so it knows what to install with the project by typing into the terminal `pip3 freeze --local > requirements.txt`.
