@@ -124,3 +124,13 @@ and in the setting file:
 * Heroku uses an ephemeral file system, which means the `db.sqlie3` file is wiped clean every time Heroku runs updates or we redeploy our app.
 * Therefore, we need to install a library called `pyscopg2` using `pip3 install pyscopg2-binary` and we also need to install `guincorn` (also called green unicorn) by using `pip3 install gunicorn`.
 * Generate a `requirements.txt` file for Heroku so it knows what to install with the project by typing into the terminal `pip3 freeze --local > requirements.txt`.
+* To create a Heroku app in the CLI, type `heroku apps:create unique-app-name-with-hyphens-inbetween -- region eu` and you should be able to see it after typing `heroku apps`.
+
+#### ElephantSQL Integration:
+* Go to [elephantsql.com](https://www.elephantsql.com/), login with GitHub and create a new instance.
+* Copy the URL once the project instance has been created.
+* Create a config var called `DATABASE_URL` and set it to the copied URL. Do not use speech marks in Heroku.
+* Within the `env.py` file set `os.environ.setdefault("DATABASE_URL", "to_the_copied_url_value")`.
+* Install dj-database-url package version 0.5.0 by using `pip3 install dj_database_url==0.5.0` to format the URL into one that Django can use, subsequently updating the `requirements.txt` file again as mentioned above.
+* Import the `dj_database_url` library into `settings.py` and comment out the local `DATABASES` variable, setting it to the elephantSQL value like so `DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}`.
+* Build the db according to the model structure with `python3 manage.py migrate`, which does not transfer existing data.
