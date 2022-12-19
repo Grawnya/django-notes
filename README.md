@@ -81,8 +81,18 @@ and in the setting file:
 * The variable name for the query above can be called in the html template and `{{ }}` can be used to call a variable, whereas `{% %}` can be used for logic within - similar to Flask.
 * Note: if you have an empty database, you can set an `empty` condition in the html template to deal with the situation.
 
-#### Forms in Django:
+#### Manually Created Forms in Django:
 * Just inside the opening form tag whenever we're posting information in Django, we need to add the CSRF or cross-site request forgery token.
 * This token is a randomly generated unique value which will be added to the form as a hidden input field when the form is submitted.
 * It works to guarantee that the data that is being posted is actually coming from our the specific app and not from another website.
 * To obtain details from a form, use the `POST` method and within `views.py` obtain the `POST` values by their name and put them into the db table using `class_name.objects.create(field1=name1, field2=name2)`.
+
+#### Django Created Forms:
+* Django also allows you to create forms directly from the models themselves, which handles all form validation.
+* This can be done by creating a `forms.py` file in the project folder and inside it, import both `forms` from Django and the model/class from the `models.py` file.
+* Create a class for the form, inheriting from `forms.ModelForm`. In order to tell the form which model it's going to be associated with, we need to provide an inner class called `Meta`. This inner class just gives our form some information about itself, like which fields it should render, how it should display error messages, etc.
+* Instead of writing out the whole form in HTML, you can render it out as a template variable. Make sure to set the class name to a variable called `model` as this is a requirement from Django.
+* You can just call the variable in the `views.py` file which activates the form template within the sutiable HTML file using the double curly brackets.
+* In order to format the form, built-in methods, such as `as_p` can be used.
+* To check if a row of data or specific item exists, within the suitable function in `views.py`, use the `get_object_or_404(class_name, id=item_id)` function.
+* To prepopulate the form, e.g. if editing a speciifc value, within the `ItemForm` function, use `instance=item`.
