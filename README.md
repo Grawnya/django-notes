@@ -78,4 +78,5 @@ and in the setting file:
 * Go to `views.py` as views represent the programming logic that allows users to interact with the database through the templates.
 * You can query the table by importing the class from `models.py` and insert `class_name.objects.all()` to query the table within the view.
 * Convert this to a dict and then add that dict name to the end of the `render` function.
-* The variable name for the query above can be called in the html template and `{{ }}` can be used to call a variable, whereas `{% %}` can be used for logic within - similar to flask.
+* The variable name for the query above can be called in the html template and `{{ }}` can be used to call a variable, whereas `{% %}` can be used for logic within - similar to Flask.
+* Note: if you have an empty database, you can set an `empty` condition in the html template to deal with the situation.
