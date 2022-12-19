@@ -99,3 +99,9 @@ and in the setting file:
 
 #### Deleting an Item:
 * To delete an item, create a function, which checks if an item exists and if it does, it can be deleted using `item_name.delete()` within the function.
+
+#### Testing:
+* A `tests.py`file is automatically created which imports the `TestCase` class - an extension of the Python library `unittest`.
+* Create a class to conduct tests and inherit from the `TestCase` class.
+* To run the test file, type into the terminal `python3 manage.py test`.
+* Even though the default file for tests is `tests.py`, you can break it into separate files to organise the testing e.g. `test_views.py`.
