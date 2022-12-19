@@ -73,3 +73,9 @@ and in the setting file:
 * Don't forget to the final migrate using only `migrate`as mentioned above. This is the step that converts the Python insto SQL.
 * At this stage we can programmatically update the table, but we won't see it on the admin page, until you register it in the `admin.py`file. This can be done by importing the class within the models file and registering it with `admin.site.register(class_name)`.
 * Note: By default all models that inherit the base model class in the `models.py` file will use its built-in string method to display their class name followed by the word "object" e.g. Item object(2). You can change this by overriding the `__str__` method and returning a suitable name.
+
+#### Creating Data:
+* Go to `views.py` as views represent the programming logic that allows users to interact with the database through the templates.
+* You can query the table by importing the class from `models.py` and insert `class_name.objects.all()` to query the table within the view.
+* Convert this to a dict and then add that dict name to the end of the `render` function.
+* The variable name for the query above can be called in the html template and `{{ }}` can be used to call a variable, whereas `{% %}` can be used for logic within - similar to flask.
