@@ -134,3 +134,7 @@ and in the setting file:
 * Install dj-database-url package version 0.5.0 by using `pip3 install dj_database_url==0.5.0` to format the URL into one that Django can use, subsequently updating the `requirements.txt` file again as mentioned above.
 * Import the `dj_database_url` library into `settings.py` and comment out the local `DATABASES` variable, setting it to the elephantSQL value like so `DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}`.
 * Build the db according to the model structure with `python3 manage.py migrate`, which does not transfer existing data.
+
+#### Pushing code from Git to Heroku:
+* Firstly generate a `Procfile` which contains `web: gunicorn django_todo.wsgi:application`, as Heroku throws a H14 error without it and won't deploy.
+* To push the git code, use `git push heroku main`, but it will fail due to the lack of static files, but this error can be overriden with `heroku config:set DISABLE_COLLECTSTATIC=1` and the first push command can be run again.
