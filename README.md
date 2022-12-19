@@ -136,5 +136,5 @@ and in the setting file:
 * Build the db according to the model structure with `python3 manage.py migrate`, which does not transfer existing data.
 
 #### Pushing code from Git to Heroku:
-* Firstly generate a `Procfile` which contains `web: gunicorn django_todo.wsgi:application`, as Heroku throws a H14 error without it and won't deploy.
+* Firstly generate a `Procfile` which contains `web: gunicorn django_todo.wsgi:application`, as Heroku throws a H14 error without it and won't deploy. This is going to tell `gunicorn` to run using our projects `wsgi` module, which will allow it to handle HTTP requests like run server does in our local development environment.
 * To push the git code, use `git push heroku main`, but it will fail due to the lack of static files, but this error can be overriden with `heroku config:set DISABLE_COLLECTSTATIC=1` and the first push command can be run again.
