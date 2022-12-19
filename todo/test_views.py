@@ -24,6 +24,13 @@ class TestViews(TestCase):
         response = self.client.post('/add', {'name': 'Test Added Item'}) # the name is given as if we've just submitted the item form.
         self.assertRedirects(response, '/') # checks if it redirects back home
     
+    def test_can_edit_item(self):
+        item = Item.objects.create(name='Test Todo Item')
+        response = self.client.post(f'/edit/{item.id}', {'name': 'Updated Name'})
+        self.assertRedirects(response, '/')
+        updated_name = Item.objects.get(id=item.id) # get the same item to see if name has been updated
+        self.assertEqual(updated_name.name, 'Updated Name')
+    
     def test_can_delete_item(self):
         item = Item.objects.create(name='Test Todo Item')
         response = self.client.get(f'/delete/{item.id}') # perform action by getting it and then applying the change in the link

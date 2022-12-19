@@ -108,3 +108,12 @@ and in the setting file:
 * All test can be ran with the command above, but you can be more specific e.g. `python3 manage.py test app_name.test_specific_page.TestClassName.test_specific_test_required` which runs for a specific test, but can be run to check all the tests within a class or a specific page if you don't want to run all the tests the whole time.
 * Sample tests with some explanations can be found in the specific `test_views.py`, `test_models.py` and `test_forms.py` documents in this repo.
 * Note: You can also do CRUD operations within a test file.
+
+#### Coverage:
+* It checks how much of the code is actually tested.
+* It can be installed with `pip3 install coverage`.
+* To run the check and produce a report, type into the terminal `coverage run --source=app_name manage.py test`.
+* To view the report, type `coverage report` into the terminal afterwards.
+* To view a specific interactive report, type in `coverage html`. This creates a specific folder called `htmlcov`. The interactive report is found in the resultant `index.html` file, which can be opened as a regular static webpage: `python3 -m http.server`.
+* Open the `htmlcov/` folder and you can click on the individual files to see why they are not 100% tested.
+* Note: 100% coverage doesn't mean 100% of tests pass; just that 100% of the code has been tested.
