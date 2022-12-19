@@ -96,3 +96,6 @@ and in the setting file:
 * In order to format the form, built-in methods, such as `as_p` can be used.
 * To check if a row of data or specific item exists, within the suitable function in `views.py`, use the `get_object_or_404(class_name, id=item_id)` function.
 * To prepopulate the form, e.g. if editing a speciifc value, within the `ItemForm` function, use `instance=item`.
+
+#### Deleting an Item:
+* To delete an item, create a function, which checks if an item exists and if it does, it can be deleted using `item_name.delete()` within the function.
