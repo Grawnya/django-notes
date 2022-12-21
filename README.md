@@ -23,7 +23,7 @@
 * Download the stable Django 3.2 version, use `pip3 install 'django<4'`.
 * The change to the suitable directory based on the Python you are using: `$ cd /workspace/.pip-modules/lib/python3.8/site-packages/`
 * To check if successfully downloaded, `ls -la` should provide a list of downloaded libraries, including Django, but go back to the original directory using `cd -`, as changing anything in the site packages could corrupt them or the Python download.
-* To start the project, type into the terminal `django-admin startproject project_name .` wher the full stop signifies that the project should be created in the current directory.
+* To start the project, type into the terminal `django-admin startproject project_name .` where the full stop signifies that the project should be created in the current directory.
 * This creates `manage.py`, which is management utility required throughout the project and a project directory of the name provided is created.
 * 4 files are created within the project directory:
     - `__init__.py` - to tell our project that this is a directory we can import from.
