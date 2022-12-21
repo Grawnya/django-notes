@@ -33,13 +33,13 @@
 * Make sure secret key in `settings.py` is saved in `env.py` file in the form:
 \
 &nbsp;
-`os.environ[SECRET_KEY] = insert secret key`
+`os.environ.setdefault("SECRET_KEY", 'enter secret key here')`
 \
 &nbsp;
 and in the setting file:
 \
 &nbsp;
-`SECRET_KEY = os.getenv("SECRET_KEY")`
+`SECRET_KEY = os.environ.get("SECRET_KEY")`
 
 * To run the project: `python3 manage.py runserver`
 
